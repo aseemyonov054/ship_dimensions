@@ -1,0 +1,211 @@
+{% extends 'ships_info/head_templ.html' %}
+{% block content %}
+{% load i18n %}
+{% load l10n %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="container">
+    <div class="row">
+        <h5>{% trans "Типовые характеристики судов" %}</h5>
+        <div class="col">
+            <p>{% trans "Типовые характеристики судна типа" %} {% if LANGUAGE_CODE == "ru" %}{{ ships_type.name }}{% else %}{{ ships_type.eng_name }}{% endif %} {% trans "с" %}
+                {% if ships_parameter == "deadweight" %} 
+                    {% trans "дедвейтом" %}
+                {% elif ships_parameter == "length" %} 
+                    {% trans "длиной" %}
+                {% elif ships_parameter == "width" %}
+                    {% trans "шириной" %}
+                {% elif ships_parameter == "depth" %}
+                    {% trans "осадкой" %}
+                {% endif %} {{ ships_parameter_value|floatformat:0 }} {% trans "согласно PIANC составляют:" %}
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>{% trans "Класс судна" %}</th>
+                        <td></td>
+                        <td>{{ pianc_ship.ship_class }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Дедвейт" %}</th>
+                        <td>{% trans т %}</td>
+                        <td>{{ pianc_ship.deadweight }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Длина" %}</th>
+                        <td>{% trans "м" %}</td>
+                        <td>{{ pianc_ship.length }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Ширина" %}</th>
+                        <td>{% trans "м" %}</td>
+                        <td>{{ pianc_ship.width }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Осадка" %}</th>
+                        <td>{% trans "м" %}</td>
+                        <td>{{ pianc_ship.depth }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <form method="POST" action="/ships/dimensions/drawing/numbers/">
+                                {% csrf_token %}
+                                {% localize off %}
+                                <input type="hidden" name="ship_name" value="{{ pianc_ship.ship_class }}">
+                                <input type="hidden" name="ship_type" value="{{ ships_type.id }}">
+                                <input type="hidden" name="ship_deadweight" value="{{ pianc_ship.deadweight }}">
+                                <input type="hidden" name="ship_length" value="{{ pianc_ship.length }}">
+                                <input type="hidden" name="ship_width" value="{{ pianc_ship.width }}">
+                                <input type="hidden" name="ship_depth" value="{{ pianc_ship.depth }}">
+                                {% endlocalize %}
+                                <input type="submit" value="{% trans "Скачать чертеж" %}" class="btn btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            {% if stat_ship %}
+            <p>{% trans "Типовые характеристики судна по оценке методом корреляционно-регрессионного анализа составляют:" %}
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>{% trans "Дедвейт" %}</th>
+                        <td>{% trans "т" %}</td>
+                        <td>{{ stat_ship.deadweight }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Длина" %}</th>
+                        <td>{% trans "м" %}</td>
+                        <td>{{ stat_ship.length }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Ширина" %}</th>
+                        <td>{% trans "м" %}</td>
+                        <td>{{ stat_ship.width }}</td>
+                    </tr>
+                    <tr>
+                        <th>{% trans "Осадка" %}</th>
+                        <td>{% trans "м" %}</td>
+                        <td>{{ stat_ship.depth }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <form method="POST" action="/ships/dimensions/drawing/numbers/">
+                                {% csrf_token %}
+                                {% localize off %}
+                                <input type="hidden" name="ship_name" value="-">
+                                <input type="hidden" name="ship_type" value="{{ ships_type.id }}">
+                                <input type="hidden" name="ship_deadweight" value="{{ stat_ship.deadweight }}">
+                                <input type="hidden" name="ship_length" value="{{ stat_ship.length }}">
+                                <input type="hidden" name="ship_width" value="{{ stat_ship.width }}">
+                                <input type="hidden" name="ship_depth" value="{{ stat_ship.depth }}">
+                                {% endlocalize %}
+                                <input type="submit" value="{% trans "Скачать чертеж" %}" class="btn btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            {% endif %}
+        </div>
+        <div class="col">
+            <canvas id="chart_div" style="width: 100%; height: 100%;"></canvas>
+            <div style="display: none;" id="y_length_label">{% trans "Метры" %}</div>
+            <div style="display: none;" id="x_label">{% trans "Дедвейт, т" %}</div>
+            <div style="display: none;" id="ship_length_title">{% trans "Длина судна" %}</div>
+            <div style="display: none;" id="ship_width_title">{% trans "Ширина судна" %}</div>
+            <div style="display: none;" id="ship_depth_title">{% trans "Осадка судна" %}</div>
+        </div>
+    </div>
+    <h5>{% trans "Список ближайших судов" %}</h5>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th rowspan="2">№</th>
+                        <th rowspan="2">IMO</th>
+                        <th rowspan="2">{% trans "Судно" %}</th>
+                        <th>{% trans "Дедвейт" %}</th>
+                        <th>{% trans "Длина" %}</th>
+                        <th>{% trans "Ширина" %}</th>
+                        <th>{% trans "Осадка" %}</th>
+                        <th rowspan="2">{% trans "Чертеж" %}</th>
+                    </tr>
+                    <tr>
+                        <td>{% trans "т" %}</td>
+                        <td>{% trans "м" %}</td>
+                        <td>{% trans "м" %}</td>
+                        <td>{% trans "м" %}</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ship in list_of_ships %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="https://www.vesselfinder.com/vessels/details/{{ ship.1.imo}}" target="_blank">{{ ship.1.imo }}</a></td>
+                        <td>{{ ship.1.name }}</td>
+                        <td>{{ ship.1.deadweight|floatformat:0 }}</td>
+                        <td>{{ ship.1.length|floatformat:1 }}</td>
+                        <td>{{ ship.1.width|floatformat:1 }}</td>
+                        <td>{{ ship.1.depth|floatformat:1 }}</td>
+                        <td>
+                            <form method="POST" action="/ships/dimensions/drawing/">
+                                {% csrf_token %}
+                                <input type="hidden" name="ships_id" value="{{ ship.1.id }}">
+                                <input type="submit" value="{% trans 'Скачать' %}" class="btn btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('chart_div');
+    var y_length_label = document.getElementById("y_length_label").innerHTML;
+    var x_label = document.getElementById("x_label").innerHTML;
+    var ships_length_label = document.getElementById("ship_length_title").innerHTML;
+    var ships_width_label = document.getElementById("ship_width_title").innerHTML;
+    var ships_depth_label = document.getElementById("ship_depth_title").innerHTML;
+
+
+    const mixedChart = new Chart(ctx, {
+        data: {
+            datasets: [{
+                type: 'line',
+                label: ships_length_label,
+                data: [{% for d in linear_data %}{{ d.1|unlocalize }},{% endfor %}],
+                borderColor: 'rgb(245, 73, 39)',
+            },{
+                type: 'line',
+                label: ships_width_label,
+                data: [{% for d in linear_data %}{{ d.2|unlocalize }},{% endfor %}],
+                borderColor: 'rgb(245, 149, 39)',
+            },{
+                type: 'line',
+                label: ships_depth_label,
+                data: [{% for d in linear_data %}{{ d.3|unlocalize }},{% endfor %}],
+                borderColor: 'rgb(245, 211, 39)',
+            }
+            ],
+            labels: [{% for d in linear_data %}{{ d.0|unlocalize }},{% endfor %}],
+        },
+        options: {
+            scales: {
+                y: {
+                    title: {
+                        display: true,
+                        text: y_length_label
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: x_label
+                    }
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

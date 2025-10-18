@@ -1,0 +1,92 @@
+{% extends "ships_info/head_templ.html" %}
+{% block content %}
+{% load i18n %}
+{% load static %}
+<div class="container">
+    <h5>{% trans "Поиск информации о судах по их характеристикам" %}</h5>
+    <form method="POST" action="/ships/dimensions/">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="2">
+                    {% trans "Тип судна" %}
+                </td>
+                <td>
+                    <select id="ships_type" name="ships_type" class="form-select" onchange="update_dimensions()">
+                        {% for ship_type in list_of_ships_type %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        <option value="{{ ship_type.name }}">{% if LANGUAGE_CODE == "ru" %}{{ ship_type.name }}{% else %}{{ ship_type.eng_name }}{% endif %}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">{% trans "Параметр" %}</td>
+                <td>
+                    <select name="ships_parameter" class="form-select" id="ships_parameter" onchange="update_dimensions()">
+                        <option value="deadweight" selected>{% trans "Дедвейт" %}</option>
+                        <option value="length">{% trans "Длина" %}</option>
+                        <option value="width">{% trans "Ширина" %}</option>
+                        <option value="depth">{% trans "Осадка" %}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>{% trans "Границы" %}</td>
+                <td><span id="dimensions0">{% trans "т" %}</span></td>
+                <td>
+                    <p style="margin;:0px">{% trans "Мин:" %}<span id="min_value">{{ default_parameters.0 }}</span></p>
+                    <p style="margin;:0px">{% trans "Мaкc:" %}<span id="max_value">{{ default_parameters.1 }}</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Значение" %}
+                </td>
+                <td>
+                    <span id="dimensions">{% trans "т" %}</span>
+                </td>
+                <td>
+                    <input type="number" name="ships_parameter_value" value="50000">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% trans "Допустимое отклонение" %}
+                </td>
+                <td>
+                    %
+                </td>
+                <td>
+                    <input type="number" name="allowed_spread" value="10">
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" class="btn btn-danger" value="{% trans "Найти" %}"/>
+        </p>
+    </form>
+</div>
+<script>
+    var parameter_limits = {{ parameter_limits|safe }};
+    function update_dimensions(){
+        var ships_parameter = document.getElementById("ships_parameter").value;
+        var ship_type = document.getElementById("ships_type").value;
+        // update dimensions
+        var dim = document.getElementById("dimensions");
+        var dim0 = document.getElementById("dimensions0");
+        if(ships_parameter === "deadweight"){
+            dim.innerHTML = "{% trans 'т' %}";
+            dim0.innerHTML = "{% trans 'т' %}";
+        }else{
+            dim.innerHTML = "{% trans 'м' %}";
+            dim0.innerHTML = "{% trans 'м' %}";
+        }
+        // update min, max values
+        var min_value = parameter_limits[ship_type][ships_parameter][0];
+        var max_value = parameter_limits[ship_type][ships_parameter][1];
+        document.getElementById("min_value").innerHTML = min_value;
+        document.getElementById("max_value").innerHTML = max_value;
+    }
+</script>
+{% endblock %}

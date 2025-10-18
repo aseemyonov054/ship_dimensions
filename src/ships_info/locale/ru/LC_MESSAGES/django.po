@@ -1,0 +1,339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-05 11:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:7
+msgid "Типовые характеристики судов"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:9
+msgid "Типовые характеристики судна типа"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:9
+msgid "с"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:11
+msgid "дедвейтом"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:13
+msgid "длиной"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:15
+msgid "шириной"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:17
+msgid "осадкой"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:18
+msgid "согласно PIANC составляют:"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:21
+msgid "Класс судна"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:26
+#: ships_info/templates/ships_info/closest_ships_dim.html:64
+#: ships_info/templates/ships_info/closest_ships_dim.html:118
+#: ships_info/templates/ships_info/find_ships_dim.html:29
+msgid "Дедвейт"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:31
+#: ships_info/templates/ships_info/closest_ships_dim.html:69
+#: ships_info/templates/ships_info/closest_ships_dim.html:119
+#: ships_info/templates/ships_info/find_ships_dim.html:30
+msgid "Длина"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:32
+#: ships_info/templates/ships_info/closest_ships_dim.html:37
+#: ships_info/templates/ships_info/closest_ships_dim.html:42
+#: ships_info/templates/ships_info/closest_ships_dim.html:70
+#: ships_info/templates/ships_info/closest_ships_dim.html:75
+#: ships_info/templates/ships_info/closest_ships_dim.html:80
+#: ships_info/templates/ships_info/closest_ships_dim.html:126
+#: ships_info/templates/ships_info/closest_ships_dim.html:127
+#: ships_info/templates/ships_info/closest_ships_dim.html:128
+#: ships_info/templates/ships_info/find_ships_dim.html:84
+#: ships_info/templates/ships_info/find_ships_dim.html:85
+msgid "м"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:36
+#: ships_info/templates/ships_info/closest_ships_dim.html:74
+#: ships_info/templates/ships_info/closest_ships_dim.html:120
+#: ships_info/templates/ships_info/find_ships_dim.html:31
+msgid "Ширина"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:41
+#: ships_info/templates/ships_info/closest_ships_dim.html:79
+#: ships_info/templates/ships_info/closest_ships_dim.html:121
+#: ships_info/templates/ships_info/find_ships_dim.html:32
+msgid "Осадка"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:54
+#: ships_info/templates/ships_info/closest_ships_dim.html:92
+msgid "Скачать чертеж"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:61
+msgid ""
+"Типовые характеристики судна по оценке методом корреляционно-регрессионного "
+"анализа составляют:"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:65
+#: ships_info/templates/ships_info/closest_ships_dim.html:125
+#: ships_info/templates/ships_info/find_ships_dim.html:38
+#: ships_info/templates/ships_info/find_ships_dim.html:49
+#: ships_info/templates/ships_info/find_ships_dim.html:81
+#: ships_info/templates/ships_info/find_ships_dim.html:82
+#: ships_info/templates/ships_info/ship_type_info.html:128
+msgid "т"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:102
+msgid "Метры"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:103
+msgid "Дедвейт, т"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:104
+msgid "Длина судна"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:105
+msgid "Ширина судна"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:106
+msgid "Осадка судна"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:109
+msgid "Список ближайших судов"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:117
+msgid "Судно"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:122
+msgid "Чертеж"
+msgstr ""
+
+#: ships_info/templates/ships_info/closest_ships_dim.html:145
+msgid "Скачать"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:6
+msgid "Поиск информации о судах по их характеристикам"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:12
+msgid "Тип судна"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:25
+msgid "Параметр"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:37
+msgid "Границы"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:40
+msgid "Мин:"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:41
+msgid "Мaкc:"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:46
+msgid "Значение"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:57
+msgid "Допустимое отклонение"
+msgstr ""
+
+#: ships_info/templates/ships_info/find_ships_dim.html:68
+msgid "Найти"
+msgstr ""
+
+#: ships_info/templates/ships_info/head_templ.html:27
+msgid "Главная"
+msgstr ""
+
+#: ships_info/templates/ships_info/head_templ.html:30
+msgid "Размерения"
+msgstr ""
+
+#: ships_info/templates/ships_info/index.html:15
+msgid "Танкер"
+msgstr ""
+
+#: ships_info/templates/ships_info/index.html:29
+msgid "Газовоз"
+msgstr ""
+
+#: ships_info/templates/ships_info/index.html:43
+msgid "Балкер"
+msgstr ""
+
+#: ships_info/templates/ships_info/index.html:57
+msgid "Контейнеровоз"
+msgstr ""
+
+#: ships_info/templates/ships_info/index.html:71
+msgid "Ролкер"
+msgstr ""
+
+#: ships_info/templates/ships_info/index.html:85
+msgid "Универсальное судно"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:11
+#: ships_info/templates/ships_info/ship_type_info.html:12
+#: ships_info/templates/ships_info/ship_type_info.html:109
+msgid "Количество судозаходов"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:11
+#: ships_info/templates/ships_info/ship_type_info.html:12
+msgid "Среднее"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:20
+#: ships_info/templates/ships_info/ship_type_info.html:21
+msgid "Неравномерность прибытия судов"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:25
+msgid "Месяц"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:26
+#: ships_info/templates/ships_info/port_info.html:64
+#: ships_info/templates/ships_info/ship_type_info.html:66
+msgid "Частота"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:43
+#: ships_info/templates/ships_info/ship_type_info.html:44
+msgid "Распределение судов по классу"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:61
+#: ships_info/templates/ships_info/ship_type_info.html:62
+msgid "Распределение судов по времени обработки"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:63
+#: ships_info/templates/ships_info/ship_type_info.html:64
+msgid "Время обработки, ч"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:81
+msgid "Судозаходы судов типа"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:81
+msgid "в порт"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:85
+msgid "Средний дедвейт,т:"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:91
+msgid "Среднее время обработки, ч:"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:95
+msgid "Коэффициент неравномерности:"
+msgstr ""
+
+#: ships_info/templates/ships_info/port_info.html:105
+#: ships_info/templates/ships_info/port_info.html:112
+#: ships_info/templates/ships_info/ship_type_info.html:146
+msgid "Скачать отчет"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:82
+msgid "Судозаходы в порты России судов типа"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:94
+msgid "Карта"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:97
+msgid "Список"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:108
+msgid "Порт"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:110
+msgid "Средний дедвейт, т"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:111
+msgid "Среднее время обработки, ч"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:128
+msgid "Средний дедвейт:"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:133
+msgid "Среднее время обработки:"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:133
+msgid "ч"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:154
+msgid "Скачать отчет по портам"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:162
+msgid "Скачать отчет по судам"
+msgstr ""
+
+#: ships_info/templates/ships_info/ship_type_info.html:171
+msgid "Скачать отчет по морям"
+msgstr ""
