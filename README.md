@@ -60,7 +60,7 @@ The data is supported by regression graphs for the vessel's length, width, and d
 Figure 5. Example of search results: regression graphs of the length, width, and draft of a vessel on deadweight
 
 	3) data on courts from public sources (Fig. 6).
- 
+
 <img src="https://github.com/aseemyonov054/ship_dimensions/blob/main/imgs/img6.png"/>
 Figure 6: Example of search results: data from public sources
 
